@@ -1,9 +1,12 @@
-package Presentation;
+package src;
+import java.util.HashMap;
 
+import Presentation.MainInterface;
+import se.sics.jasper.Query;
 import se.sics.jasper.SICStus;
 import se.sics.jasper.SPException;
 
-public class teste {
+public class Main{
 	
 	private static SICStus sp;
 
@@ -12,15 +15,17 @@ public class teste {
 		m.setVisible(true);
 	}
 	
-	public static void load(String path){
+	public static int load(String path){
+		int flag=0;
 		try {
 			sp = new SICStus();
 			sp.load(path);
-			System.out.println("loaded");
+			flag=1;
 		} catch (SPException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("erro");
+			flag=0;
 		}
+		return flag;
 	}
 	
 }

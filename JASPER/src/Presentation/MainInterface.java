@@ -9,8 +9,8 @@ import java.awt.event.*;
 import java.io.File;
 
 import javax.swing.*;
-import Presentation.teste;
 
+import src.Main;
 /**
  * @author Octavio Maia
  */
@@ -31,15 +31,28 @@ public class MainInterface extends JFrame {
 	}
 
 	private void buttonCarregarActionPerformed(ActionEvent e) {
+		int flag=0;
+		
 		if(pathLabel.getText().length()==0){
 			JOptionPane.showMessageDialog(null, "Path nulo!");
 		}else{
-			teste.load(pathLabel.getText());
+			flag = Main.load(pathLabel.getText());
+			if(flag==1){
+				addConhecimentoImpreciso.setEnabled(true);
+				addConhecimentoIncerto.setEnabled(true);
+				addConhecimentoInterdito.setEnabled(true);
+				addConhecimentoPerfeito.setEnabled(true);
+			}
 		}
 	}
 
 	private void buttonApagarActionPerformed(ActionEvent e) {
 		pathLabel.setText("");
+	}
+
+	private void addConhecimentoPerfeitoActionPerformed(ActionEvent e) {
+		ConhecimentoPerfeito cp = new ConhecimentoPerfeito();
+		cp.setVisible(true);
 	}
 
 	private void initComponents() {
@@ -50,6 +63,12 @@ public class MainInterface extends JFrame {
 		buttonCarregar = new JButton();
 		buttonProcurar = new JButton();
 		buttonApagar = new JButton();
+		separator1 = new JSeparator();
+		addConhecimentoPerfeito = new JButton();
+		label2 = new JLabel();
+		addConhecimentoImpreciso = new JButton();
+		addConhecimentoIncerto = new JButton();
+		addConhecimentoInterdito = new JButton();
 		fileChooser1 = new JFileChooser();
 
 		//======== this ========
@@ -88,6 +107,43 @@ public class MainInterface extends JFrame {
 		buttonApagar.addActionListener(e -> buttonApagarActionPerformed(e));
 		contentPane.add(buttonApagar);
 		buttonApagar.setBounds(370, 60, 185, buttonApagar.getPreferredSize().height);
+		contentPane.add(separator1);
+		separator1.setBounds(10, 95, 665, 5);
+
+		//---- addConhecimentoPerfeito ----
+		addConhecimentoPerfeito.setText("Conhecimento Perfeito (Positivo / Negativo)");
+		addConhecimentoPerfeito.setFont(new Font("Arial", Font.PLAIN, 14));
+		addConhecimentoPerfeito.setEnabled(false);
+		addConhecimentoPerfeito.addActionListener(e -> addConhecimentoPerfeitoActionPerformed(e));
+		contentPane.add(addConhecimentoPerfeito);
+		addConhecimentoPerfeito.setBounds(10, 135, 640, 25);
+
+		//---- label2 ----
+		label2.setText("Evolu\u00e7\u00e3o da base de conhecimento");
+		label2.setFont(new Font("Arial", Font.BOLD, 14));
+		contentPane.add(label2);
+		label2.setBounds(10, 105, 310, 25);
+
+		//---- addConhecimentoImpreciso ----
+		addConhecimentoImpreciso.setText("Conhecimento Impreciso");
+		addConhecimentoImpreciso.setFont(new Font("Arial", Font.PLAIN, 14));
+		addConhecimentoImpreciso.setEnabled(false);
+		contentPane.add(addConhecimentoImpreciso);
+		addConhecimentoImpreciso.setBounds(200, 170, 205, 25);
+
+		//---- addConhecimentoIncerto ----
+		addConhecimentoIncerto.setText("Conhecimento Incerto");
+		addConhecimentoIncerto.setFont(new Font("Arial", Font.PLAIN, 14));
+		addConhecimentoIncerto.setEnabled(false);
+		contentPane.add(addConhecimentoIncerto);
+		addConhecimentoIncerto.setBounds(10, 170, 177, 25);
+
+		//---- addConhecimentoInterdito ----
+		addConhecimentoInterdito.setText("Conhecimento Interdito");
+		addConhecimentoInterdito.setFont(new Font("Arial", Font.PLAIN, 14));
+		addConhecimentoInterdito.setEnabled(false);
+		contentPane.add(addConhecimentoInterdito);
+		addConhecimentoInterdito.setBounds(430, 170, 220, addConhecimentoInterdito.getPreferredSize().height);
 
 		{ // compute preferred size
 			Dimension preferredSize = new Dimension();
@@ -117,6 +173,12 @@ public class MainInterface extends JFrame {
 	private JButton buttonCarregar;
 	private JButton buttonProcurar;
 	private JButton buttonApagar;
+	private JSeparator separator1;
+	private JButton addConhecimentoPerfeito;
+	private JLabel label2;
+	private JButton addConhecimentoImpreciso;
+	private JButton addConhecimentoIncerto;
+	private JButton addConhecimentoInterdito;
 	private JFileChooser fileChooser1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
