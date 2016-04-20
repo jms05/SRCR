@@ -15,6 +15,21 @@ public class conheci_incerto extends conhecimento {
 		}
 	}
 	
+	
+	protected int[] getNulos() {
+		return nulos;
+	}
+
+
+
+
+	protected String[] getNulstr() {
+		return nulstr;
+	}
+
+
+
+
 	protected String getSaltString() {
         String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
         StringBuilder salt = new StringBuilder();
