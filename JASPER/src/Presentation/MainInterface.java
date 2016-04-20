@@ -129,7 +129,7 @@ public class MainInterface extends JFrame {
 		addConhecimentoImpreciso.setFont(new Font("Arial", Font.PLAIN, 14));
 		addConhecimentoImpreciso.setEnabled(false);
 		contentPane.add(addConhecimentoImpreciso);
-		addConhecimentoImpreciso.setBounds(200, 170, 205, 25);
+		addConhecimentoImpreciso.setBounds(205, 170, 205, 25);
 
 		//---- addConhecimentoIncerto ----
 		addConhecimentoIncerto.setText("Conhecimento Incerto");
