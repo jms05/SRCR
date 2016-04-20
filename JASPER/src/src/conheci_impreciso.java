@@ -7,6 +7,29 @@ public class conheci_impreciso extends conhecimento {
 	private String lower;
 	private ArrayList<String> ops;
 
+	
+	
+	public conheci_impreciso(String idServico, String nomeServico, String instServico, String cidadeServico,String ops) {
+		super(idServico, nomeServico, instServico, cidadeServico);
+		String[] dois=  ops.split("-");
+		if(dois.length!=0){
+			//this(idServico,nomeServico,instServico, cidadeServico, dois[1],dois[0],null);
+			this.lower=dois[0];
+			this.upper=dois[1];
+			this.ops=null;
+		}else{
+			dois=  ops.split(",");
+			this.lower=null;
+			this.upper=null;
+			ArrayList<String> ar = new ArrayList<>();
+			for (int i = 0; i < dois.length; i++) {
+				ar.add(dois[i]);
+			}
+			this.ops=ar;
+		}
+
+	}
+	
 	public conheci_impreciso(String idServico, String nomeServico, String instServico, String cidadeServico,String upper,String lower,ArrayList<String> ops) {
 		super(idServico, nomeServico, instServico, cidadeServico);
 		this.lower=lower;
@@ -15,6 +38,28 @@ public class conheci_impreciso extends conhecimento {
 	}
 
 	public conheci_impreciso(String predicado, String idUtente, String nomeUtente, String idadeUtente,
+			String moradaUtente,String ops) {
+		super(predicado, idUtente, nomeUtente, idadeUtente, moradaUtente);
+		String[] dois=  ops.split("-");
+		if(dois.length!=0){
+			//this(idServico,nomeServico,instServico, cidadeServico, dois[1],dois[0],null);
+			this.lower=dois[0];
+			this.upper=dois[1];
+			this.ops=null;
+		}else{
+			dois=  ops.split(",");
+			this.lower=null;
+			this.upper=null;
+			ArrayList<String> ar = new ArrayList<>();
+			for (int i = 0; i < dois.length; i++) {
+				ar.add(dois[i]);
+			}
+			this.ops=ar;
+		}
+
+	}
+	
+	public conheci_impreciso(String predicado, String idUtente, String nomeUtente, String idadeUtente,
 			String moradaUtente,String upper,String lower,ArrayList<String> ops) {
 		super(predicado, idUtente, nomeUtente, idadeUtente, moradaUtente);
 		this.lower=lower;
@@ -22,6 +67,27 @@ public class conheci_impreciso extends conhecimento {
 		this.ops=ops;
 	}
 
+	public conheci_impreciso(String anoConslta, String mesConslta, String diaConslta, String utenteConslta,
+			String serveConslta, String custoConslta,String ops) {
+		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
+		String[] dois=  ops.split("-");
+		if(dois.length!=0){
+			//this(idServico,nomeServico,instServico, cidadeServico, dois[1],dois[0],null);
+			this.lower=dois[0];
+			this.upper=dois[1];
+			this.ops=null;
+		}else{
+			dois=  ops.split(",");
+			this.lower=null;
+			this.upper=null;
+			ArrayList<String> ar = new ArrayList<>();
+			for (int i = 0; i < dois.length; i++) {
+				ar.add(dois[i]);
+			}
+			this.ops=ar;
+		}
+	}
+	
 	public conheci_impreciso(String anoConslta, String mesConslta, String diaConslta, String utenteConslta,
 			String serveConslta, String custoConslta,String upper,String lower,ArrayList<String> ops) {
 		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
