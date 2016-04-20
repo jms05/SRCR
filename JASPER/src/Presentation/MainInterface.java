@@ -55,6 +55,16 @@ public class MainInterface extends JFrame {
 		cp.setVisible(true);
 	}
 
+	private void addConhecimentoIncertoActionPerformed(ActionEvent e) {
+		ConhecimentoIncerto ci = new ConhecimentoIncerto();
+		ci.setVisible(true);
+	}
+
+	private void addConhecimentoImprecisoActionPerformed(ActionEvent e) {
+		ConhecimentoImpreciso cimp = new ConhecimentoImpreciso();
+		cimp.setVisible(true);
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		// Generated using JFormDesigner Evaluation license - Octavio Maia
@@ -128,6 +138,7 @@ public class MainInterface extends JFrame {
 		addConhecimentoImpreciso.setText("Conhecimento Impreciso");
 		addConhecimentoImpreciso.setFont(new Font("Arial", Font.PLAIN, 14));
 		addConhecimentoImpreciso.setEnabled(false);
+		addConhecimentoImpreciso.addActionListener(e -> addConhecimentoImprecisoActionPerformed(e));
 		contentPane.add(addConhecimentoImpreciso);
 		addConhecimentoImpreciso.setBounds(205, 170, 205, 25);
 
@@ -135,6 +146,7 @@ public class MainInterface extends JFrame {
 		addConhecimentoIncerto.setText("Conhecimento Incerto");
 		addConhecimentoIncerto.setFont(new Font("Arial", Font.PLAIN, 14));
 		addConhecimentoIncerto.setEnabled(false);
+		addConhecimentoIncerto.addActionListener(e -> addConhecimentoIncertoActionPerformed(e));
 		contentPane.add(addConhecimentoIncerto);
 		addConhecimentoIncerto.setBounds(10, 170, 177, 25);
 
