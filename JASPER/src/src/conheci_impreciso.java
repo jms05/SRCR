@@ -12,7 +12,7 @@ public class conheci_impreciso extends conhecimento {
 	public conheci_impreciso(String idServico, String nomeServico, String instServico, String cidadeServico,String ops) {
 		super(idServico, nomeServico, instServico, cidadeServico);
 		String[] dois=  ops.split("-");
-		if(dois.length!=0){
+		if(dois.length!=1){
 			//this(idServico,nomeServico,instServico, cidadeServico, dois[1],dois[0],null);
 			this.lower=dois[0];
 			this.upper=dois[1];
@@ -41,7 +41,7 @@ public class conheci_impreciso extends conhecimento {
 			String moradaUtente,String ops) {
 		super(predicado, idUtente, nomeUtente, idadeUtente, moradaUtente);
 		String[] dois=  ops.split("-");
-		if(dois.length!=0){
+		if(dois.length!=1){
 			//this(idServico,nomeServico,instServico, cidadeServico, dois[1],dois[0],null);
 			this.lower=dois[0];
 			this.upper=dois[1];
@@ -71,7 +71,7 @@ public class conheci_impreciso extends conhecimento {
 			String serveConslta, String custoConslta,String ops) {
 		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
 		String[] dois=  ops.split("-");
-		if(dois.length!=0){
+		if(dois.length!=1){
 			//this(idServico,nomeServico,instServico, cidadeServico, dois[1],dois[0],null);
 			this.lower=dois[0];
 			this.upper=dois[1];
