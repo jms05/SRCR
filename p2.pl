@@ -237,15 +237,19 @@ nao(Q).
 
 demo([Q1|QS], R) :-
 	demo1(Q1,R1),
-	demo(Q2,R2),
+	demo(QS,R2),
 	newAnd(R1,R2,R).
-demo(Q,R) :- demo1(Q,R).
+demo([Q],R) :- demo1(Q,R).
 
 
 demo1(Q, verdadeiro) :- Q.
 demo1(Q, falso) :- -Q.
 demo1(Q, desconhecido) :- nao(Q), nao(-Q).
 
+%demo([consulta(2015,2,20,1,1,300),consulta(2020,4,20,10,7,1.5),utente(3,bruno,25,cona)],R).
+%demo1(utente(3,bruno,25,cona),R).
+demo([consulta(2015,2,20,1,1,300),utente(3,bruno,25,cona)],R).
+demo([consulta(2020,4,20,10,7,1.5),utente(3,bruno,25,cona)],R).
 
 newAnd(verdadeiro,verdadeiro,verdadeiro).
 newAnd(verdadeiro,falso,falso).
