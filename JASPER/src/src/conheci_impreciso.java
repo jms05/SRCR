@@ -67,7 +67,7 @@ public class conheci_impreciso extends conhecimento {
 		this.ops=ops;
 	}
 
-	public conheci_impreciso(String anoConslta, String mesConslta, String diaConslta, String utenteConslta,
+	public conheci_impreciso(String diaConslta, String mesConslta, String anoConslta, String utenteConslta,
 			String serveConslta, String custoConslta,String ops) {
 		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
 		String[] dois=  ops.split("-");
@@ -88,7 +88,7 @@ public class conheci_impreciso extends conhecimento {
 		}
 	}
 	
-	public conheci_impreciso(String anoConslta, String mesConslta, String diaConslta, String utenteConslta,
+	public conheci_impreciso(String diaConslta, String mesConslta, String anoConslta, String utenteConslta,
 			String serveConslta, String custoConslta,String upper,String lower,ArrayList<String> ops) {
 		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
 		this.lower=lower;

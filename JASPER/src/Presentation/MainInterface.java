@@ -65,6 +65,15 @@ public class MainInterface extends JFrame {
 		cimp.setVisible(true);
 	}
 
+	private void button1ActionPerformed(ActionEvent e) {
+		Main.print_dados();
+	}
+
+	private void addConhecimentoInterditoActionPerformed(ActionEvent e) {
+		ConhecimentoInderdito cint = new ConhecimentoInderdito();
+		cint.setVisible(true);
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		// Generated using JFormDesigner Evaluation license - Octavio Maia
@@ -79,6 +88,7 @@ public class MainInterface extends JFrame {
 		addConhecimentoImpreciso = new JButton();
 		addConhecimentoIncerto = new JButton();
 		addConhecimentoInterdito = new JButton();
+		button1 = new JButton();
 		fileChooser1 = new JFileChooser();
 
 		//======== this ========
@@ -154,8 +164,15 @@ public class MainInterface extends JFrame {
 		addConhecimentoInterdito.setText("Conhecimento Interdito");
 		addConhecimentoInterdito.setFont(new Font("Arial", Font.PLAIN, 14));
 		addConhecimentoInterdito.setEnabled(false);
+		addConhecimentoInterdito.addActionListener(e -> addConhecimentoInterditoActionPerformed(e));
 		contentPane.add(addConhecimentoInterdito);
 		addConhecimentoInterdito.setBounds(430, 170, 220, addConhecimentoInterdito.getPreferredSize().height);
+
+		//---- button1 ----
+		button1.setText("print");
+		button1.addActionListener(e -> button1ActionPerformed(e));
+		contentPane.add(button1);
+		button1.setBounds(new Rectangle(new Point(50, 290), button1.getPreferredSize()));
 
 		{ // compute preferred size
 			Dimension preferredSize = new Dimension();
@@ -170,7 +187,7 @@ public class MainInterface extends JFrame {
 			contentPane.setMinimumSize(preferredSize);
 			contentPane.setPreferredSize(preferredSize);
 		}
-		setSize(700, 420);
+		setSize(685, 420);
 		setLocationRelativeTo(null);
 
 		//---- fileChooser1 ----
@@ -191,6 +208,7 @@ public class MainInterface extends JFrame {
 	private JButton addConhecimentoImpreciso;
 	private JButton addConhecimentoIncerto;
 	private JButton addConhecimentoInterdito;
+	private JButton button1;
 	private JFileChooser fileChooser1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

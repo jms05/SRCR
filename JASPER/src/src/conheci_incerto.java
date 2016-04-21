@@ -98,7 +98,7 @@ public class conheci_incerto extends conhecimento {
 		}
 	}
 
-	public conheci_incerto(String anoConslta, String mesConslta, String diaConslta, String utenteConslta,
+	public conheci_incerto(String diaConslta, String mesConslta, String anoConslta, String utenteConslta,
 			String serveConslta, String custoConslta) {
 		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
 		init();

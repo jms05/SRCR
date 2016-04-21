@@ -15,9 +15,9 @@ public class conheci_interdito extends conheci_incerto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public conheci_interdito(String anoConslta, String mesConslta, String diaConslta, String utenteConslta,
+	public conheci_interdito(String diaConslta, String mesConslta, String anoConslta, String utenteConslta,
 			String serveConslta, String custoConslta) {
-		super(anoConslta, mesConslta, diaConslta, utenteConslta, serveConslta, custoConslta);
+		super(diaConslta, mesConslta, anoConslta, utenteConslta, serveConslta, custoConslta);
 		// TODO Auto-generated constructor stub
 	}
 

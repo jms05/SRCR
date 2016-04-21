@@ -233,7 +233,7 @@ new FormModel {
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 580, 585 )
-			"location": new java.awt.Point( 50, 5 )
+			"location": new java.awt.Point( 45, 5 )
 		} )
 		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
 			name: "buttonGroup1"

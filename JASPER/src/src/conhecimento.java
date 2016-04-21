@@ -74,8 +74,7 @@ public class conhecimento {
 	
 
 
-	public conhecimento(String diaConslta, String mesConslta, String anoConslta, String utenteConslta,
-			String serveConslta, String custoConslta) {
+	public conhecimento(String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta) {
 		super();
 		this.predicado = CONSULTA;
 		this.diaConslta = diaConslta;
@@ -91,14 +90,14 @@ public class conhecimento {
 	public ArrayList<String> getProlog(){
 		String ret =null;
 		ArrayList<String> arr = null;
-		if(this.predicado.equals(CONSULTA)){
-			ret = CONSULTA+"("+idUtente+","+nomeUtente+","+idadeUtente+","+moradaUtente+").";
+		if(this.predicado.equals(UTENTE)){
+			ret = UTENTE+"("+idUtente+","+nomeUtente+","+idadeUtente+","+moradaUtente+").";
 		}else{
 			if(this.predicado.equals(SERVICO)){
 				ret=SERVICO+"("+idServico+","+nomeServico+","+instServico+","+cidadeServico+").";
 			}else{
-				if(this.predicado.equals(UTENTE)){
-					ret=UTENTE+"("+diaConslta+","+mesConslta+","+anoConslta+","+utenteConslta+","+serveConslta+","+custoConslta+").";
+				if(this.predicado.equals(CONSULTA)){
+					ret=CONSULTA+"("+anoConslta+","+mesConslta+","+diaConslta+","+utenteConslta+","+serveConslta+","+custoConslta+").";
 				}
 			}
 		}

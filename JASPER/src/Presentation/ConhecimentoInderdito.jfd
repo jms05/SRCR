@@ -5,7 +5,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
-			"title": "Conhecimento Perfeito"
+			"title": "Conhecimento Interdito"
 			"$locationPolicy": 1
 			"$sizePolicy": 1
 			"defaultCloseOperation": 2
@@ -191,33 +191,23 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "buttonConhecimentoPositivo"
-				"text": "Adicionar conhecimento positivo"
-				"font": &Font2 new java.awt.Font( "Arial", 0, 14 )
+				"text": "Adicionar conhecimento interdito"
+				"font": new java.awt.Font( "Arial", 0, 14 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 10
 				"y": 315
-				"width": 270
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "buttonConhecimentoNegativo"
-				"text": "Adicionar conhecimento negativo"
-				"font": #Font2
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonConhecimentoNegativoActionPerformed", true ) )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 260
+				"width": 540
 				"height": 25
-				"x": 290
-				"y": 315
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 25, 5 )
 			"size": new java.awt.Dimension( 580, 395 )
+			"location": new java.awt.Point( 20, 15 )
 		} )
 		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
 			name: "buttonGroup1"
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 650, 145 )
+			"location": new java.awt.Point( 760, 90 )
 		} )
 	}
 }

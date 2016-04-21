@@ -7,7 +7,10 @@ package Presentation;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import src.conheci_negativo;
 import src.conhecimento;
+import src.Main;
 
 /**
  * @author Octavio Maia
@@ -18,7 +21,7 @@ public class ConhecimentoPerfeito extends JFrame {
 	}
 
 	private void button1ActionPerformed(ActionEvent e) {
-		conhecimento c;
+		conhecimento c = null;
 		
 		if(buttonUtente.isSelected()){
 			//String idUtente, String nomeUtente, String idadeUtente, String moradaUtente
@@ -28,8 +31,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			String morada = textArg4.getText();
 			
 			c = new conhecimento("UTENTE",id,nome,idade,morada);
-		}
-		if(buttonConsulta.isSelected()){
+		}else if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
 			String diaConsulta = textArg1.getText();
 			String mesConsulta = textArg2.getText();
@@ -39,8 +41,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			String custoConsulta = textArg6.getText();
 			
 			c = new conhecimento(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
-		}
-		if(buttonServico.isSelected()){
+		}else if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
 			String idServico = textArg1.getText();
 			String nomeServico = textArg2.getText();
@@ -50,7 +51,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			c = new conhecimento(idServico,nomeServico,instServico,cidadeServico);
 		}
 		
-		//agr falta adicionar o conhecimento c à base de conhecimento
+		Main.inserir_perfeito(c);	
 	}
 
 	private void buttonServicoActionPerformed(ActionEvent e) {
@@ -86,6 +87,41 @@ public class ConhecimentoPerfeito extends JFrame {
 		arg6.setVisible(false);
 		textArg5.setVisible(false);
 		textArg6.setVisible(false);
+	}
+
+	private void buttonConhecimentoNegativoActionPerformed(ActionEvent e) {
+		conheci_negativo c = null;
+		
+		if(buttonUtente.isSelected()){
+			//String idUtente, String nomeUtente, String idadeUtente, String moradaUtente
+			String id = textArg1.getText();
+			String nome = textArg2.getText();
+			String idade = textArg3.getText();
+			String morada = textArg4.getText();
+			
+			c = new conheci_negativo("UTENTE",id,nome,idade,morada);
+		}
+		if(buttonConsulta.isSelected()){
+			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
+			String diaConsulta = textArg1.getText();
+			String mesConsulta = textArg2.getText();
+			String anoConsulta = textArg3.getText();
+			String utenteConsulta = textArg4.getText();
+			String serveConsulta = textArg5.getText();
+			String custoConsulta = textArg6.getText();
+			
+			c = new conheci_negativo(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
+		}
+		if(buttonServico.isSelected()){
+			//String idServico, String nomeServico, String instServico, String cidadeServico
+			String idServico = textArg1.getText();
+			String nomeServico = textArg2.getText();
+			String instServico = textArg3.getText();
+			String cidadeServico = textArg4.getText();
+			
+			c = new conheci_negativo(idServico,nomeServico,instServico,cidadeServico);
+		}
+		Main.inserir_perfeito(c);	
 	}
 
 	private void initComponents() {
@@ -224,7 +260,7 @@ public class ConhecimentoPerfeito extends JFrame {
 		//---- buttonConhecimentoNegativo ----
 		buttonConhecimentoNegativo.setText("Adicionar conhecimento negativo");
 		buttonConhecimentoNegativo.setFont(new Font("Arial", Font.PLAIN, 14));
-		buttonConhecimentoNegativo.addActionListener(e -> button1ActionPerformed(e));
+		buttonConhecimentoNegativo.addActionListener(e -> buttonConhecimentoNegativoActionPerformed(e));
 		contentPane.add(buttonConhecimentoNegativo);
 		buttonConhecimentoNegativo.setBounds(290, 315, 260, 25);
 

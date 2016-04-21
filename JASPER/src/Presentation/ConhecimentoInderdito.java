@@ -1,5 +1,5 @@
 /*
- * Created by JFormDesigner on Wed Apr 20 14:40:06 BST 2016
+ * Created by JFormDesigner on Thu Apr 21 18:08:21 BST 2016
  */
 
 package Presentation;
@@ -8,21 +8,21 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import src.conheci_impreciso;
-import src.conheci_incerto;
-import src.conhecimento;
 import src.Main;
+import src.conheci_incerto;
+import src.conheci_interdito;
+import src.conhecimento;
 
 /**
  * @author Octavio Maia
  */
-public class ConhecimentoImpreciso extends JFrame {
-	public ConhecimentoImpreciso() {
+public class ConhecimentoInderdito extends JFrame {
+	public ConhecimentoInderdito() {
 		initComponents();
 	}
 
 	private void button1ActionPerformed(ActionEvent e) {
-		conhecimento c;
+		conhecimento c=null;
 		
 		if(buttonUtente.isSelected()){
 			//String idUtente, String nomeUtente, String idadeUtente, String moradaUtente
@@ -30,81 +30,47 @@ public class ConhecimentoImpreciso extends JFrame {
 			String nome = textArg2.getText();
 			String idade = textArg3.getText();
 			String morada = textArg4.getText();
-			String ops = null;
 			
-			if(id.contains("-") || id.contains(",")){
-				ops=id;
-				id=null;
-			}else if(nome.contains("-") || nome.contains(",")){
-				ops=nome;
-				id=null;
-			}else if(idade.contains("-") || idade.contains(",")){
-				ops=idade;
-				id=null;
-			}else if(morada.contains("-") || morada.contains(",")){
-				ops=morada;
-				id=null;
-			}
+			if(id.length()==0) id=null;
+			if(nome.length()==0) nome=null;
+			if(idade.length()==0) idade=null;
+			if(morada.length()==0) morada=null;
 			
-			c = new conheci_impreciso("", id, nome, idade, morada, ops);
+			c = new conheci_interdito("UTENTE",id,nome,idade,morada);
 			System.out.println(Main.evolucao(c.getProlog()));
 		}
 		if(buttonConsulta.isSelected()){
-			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta,String ops
+			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
 			String diaConsulta = textArg1.getText();
 			String mesConsulta = textArg2.getText();
 			String anoConsulta = textArg3.getText();
 			String utenteConsulta = textArg4.getText();
 			String serveConsulta = textArg5.getText();
 			String custoConsulta = textArg6.getText();
-			String ops = null;
 			
-			if(diaConsulta.contains("-") || diaConsulta.contains(",")){
-				ops=diaConsulta;
-				diaConsulta=null;
-			}else if(mesConsulta.contains("-") || mesConsulta.contains(",")){
-				ops=mesConsulta;
-				mesConsulta=null;
-			}else if(anoConsulta.contains("-") || anoConsulta.contains(",")){
-				ops=anoConsulta;
-				anoConsulta=null;
-			}else if(utenteConsulta.contains("-") || utenteConsulta.contains(",")){
-				ops=utenteConsulta;
-				utenteConsulta=null;
-			}else if(serveConsulta.contains("-") || serveConsulta.contains(",")){
-				ops=serveConsulta;
-				serveConsulta=null;
-			}else if(custoConsulta.contains("-") || custoConsulta.contains(",")){
-				ops=custoConsulta;
-				custoConsulta=null;
-			}
+			if(diaConsulta.length()==0) diaConsulta=null;
+			if(mesConsulta.length()==0) mesConsulta=null;
+			if(anoConsulta.length()==0) anoConsulta=null;
+			if(utenteConsulta.length()==0) utenteConsulta=null;
+			if(serveConsulta.length()==0) serveConsulta=null;
+			if(custoConsulta.length()==0) custoConsulta=null;
 			
-			c = new conheci_impreciso(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta,ops);
+			c = new conheci_interdito(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
 			System.out.println(Main.evolucao(c.getProlog()));
 		}
 		if(buttonServico.isSelected()){
-			//String idServico, String nomeServico, String instServico, String cidadeServico,String ops
+			//String idServico, String nomeServico, String instServico, String cidadeServico
 			String idServico = textArg1.getText();
 			String nomeServico = textArg2.getText();
 			String instServico = textArg3.getText();
 			String cidadeServico = textArg4.getText();
-			String ops = null;
 			
-			if(idServico.contains("-") || idServico.contains(",")){
-				ops=idServico;
-				idServico=null;
-			}else if(nomeServico.contains("-") || nomeServico.contains(",")){
-				ops=nomeServico;
-				nomeServico=null;
-			}else if(instServico.contains("-") || instServico.contains(",")){
-				ops=instServico;
-				instServico=null;
-			}else if(cidadeServico.contains("-") || cidadeServico.contains(",")){
-				ops=cidadeServico;
-				cidadeServico=null;
-			}
+			if(idServico.length()==0) idServico=null;
+			if(nomeServico.length()==0) nomeServico=null;
+			if(instServico.length()==0) instServico=null;
+			if(cidadeServico.length()==0) cidadeServico=null;
 			
-			c = new conheci_impreciso(idServico,nomeServico,instServico,cidadeServico,ops);
+			c = new conheci_interdito(idServico,nomeServico,instServico,cidadeServico);
 			System.out.println(Main.evolucao(c.getProlog()));
 		}
 		
@@ -169,13 +135,9 @@ public class ConhecimentoImpreciso extends JFrame {
 		textArg6 = new JTextField();
 		separator2 = new JSeparator();
 		buttonConhecimentoPositivo = new JButton();
-		separator3 = new JSeparator();
-		label3 = new JLabel();
-		scrollPane1 = new JScrollPane();
-		textPane1 = new JTextPane();
 
 		//======== this ========
-		setTitle("Conhecimento Impreciso");
+		setTitle("Conhecimento Interdito");
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setFont(new Font("Arial", Font.PLAIN, 12));
 		Container contentPane = getContentPane();
@@ -276,31 +238,11 @@ public class ConhecimentoImpreciso extends JFrame {
 		separator2.setBounds(10, 300, 540, 7);
 
 		//---- buttonConhecimentoPositivo ----
-		buttonConhecimentoPositivo.setText("Adicionar conhecimento impreciso");
+		buttonConhecimentoPositivo.setText("Adicionar conhecimento interdito");
 		buttonConhecimentoPositivo.setFont(new Font("Arial", Font.PLAIN, 14));
 		buttonConhecimentoPositivo.addActionListener(e -> button1ActionPerformed(e));
 		contentPane.add(buttonConhecimentoPositivo);
-		buttonConhecimentoPositivo.setBounds(10, 515, 540, 25);
-		contentPane.add(separator3);
-		separator3.setBounds(10, 505, 540, 7);
-
-		//---- label3 ----
-		label3.setText("Regras de utiliza\u00e7\u00e3o");
-		label3.setFont(new Font("Arial", Font.BOLD, 14));
-		contentPane.add(label3);
-		label3.setBounds(10, 310, 175, label3.getPreferredSize().height);
-
-		//======== scrollPane1 ========
-		{
-
-			//---- textPane1 ----
-			textPane1.setText("-> De modo a representar v\u00e1rios possiveis valores \u00e9 necess\u00e1rio utilizar uma v\u00edrgula de modo a separar as diversas opc\u00f5es.\n-Exemplo: O utente n\u00e3o sabe se o seu nome \u00e9 Joao, Manuel ou Rui, logo os valores ir\u00e3o ser representados da seguinte forma: \"Joao,Manuel,Rui\"\n\n-> De forma a representar um intervalo de valores utilizamos um h\u00edfen.\n-Exemplo: O utente sabe que tem entre 50 e 60 anos, logo os valores ir\u00e3o ser representados da seguinte forma: \"50-60\"");
-			textPane1.setFont(new Font("Arial", Font.PLAIN, 12));
-			textPane1.setEditable(false);
-			scrollPane1.setViewportView(textPane1);
-		}
-		contentPane.add(scrollPane1);
-		scrollPane1.setBounds(10, 340, 540, 145);
+		buttonConhecimentoPositivo.setBounds(10, 315, 540, 25);
 
 		{ // compute preferred size
 			Dimension preferredSize = new Dimension();
@@ -315,7 +257,7 @@ public class ConhecimentoImpreciso extends JFrame {
 			contentPane.setMinimumSize(preferredSize);
 			contentPane.setPreferredSize(preferredSize);
 		}
-		setSize(580, 585);
+		setSize(580, 395);
 		setLocationRelativeTo(null);
 
 		//---- buttonGroup1 ----
@@ -348,9 +290,5 @@ public class ConhecimentoImpreciso extends JFrame {
 	private JTextField textArg6;
 	private JSeparator separator2;
 	private JButton buttonConhecimentoPositivo;
-	private JSeparator separator3;
-	private JLabel label3;
-	private JScrollPane scrollPane1;
-	private JTextPane textPane1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

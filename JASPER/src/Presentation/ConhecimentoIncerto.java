@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import src.conheci_incerto;
 import src.conhecimento;
+import src.Main;
 
 /**
  * @author Octavio Maia
@@ -20,7 +21,7 @@ public class ConhecimentoIncerto extends JFrame {
 	}
 
 	private void button1ActionPerformed(ActionEvent e) {
-		conhecimento c;
+		conhecimento c=null;
 		
 		if(buttonUtente.isSelected()){
 			//String idUtente, String nomeUtente, String idadeUtente, String moradaUtente
@@ -35,6 +36,7 @@ public class ConhecimentoIncerto extends JFrame {
 			if(morada.length()==0) morada=null;
 			
 			c = new conheci_incerto("UTENTE",id,nome,idade,morada);
+			System.out.println(Main.evolucao(c.getProlog()));
 		}
 		if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
@@ -53,6 +55,7 @@ public class ConhecimentoIncerto extends JFrame {
 			if(custoConsulta.length()==0) custoConsulta=null;
 			
 			c = new conheci_incerto(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
+			System.out.println(Main.evolucao(c.getProlog()));
 		}
 		if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
@@ -67,6 +70,7 @@ public class ConhecimentoIncerto extends JFrame {
 			if(cidadeServico.length()==0) cidadeServico=null;
 			
 			c = new conheci_incerto(idServico,nomeServico,instServico,cidadeServico);
+			System.out.println(Main.evolucao(c.getProlog()));
 		}
 		
 		//agr falta adicionar o conhecimento_incerto c à base de conhecimento
