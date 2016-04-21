@@ -33,7 +33,6 @@ utente(2,sara,18,porto).
 	% Utente bruno com o numero de identificação 3, com 25 anos e desconhece o endereço de residencia.
 	utente(3,bruno,25,xpto1). 
 	exception(utente(Id,Nome,Idade,Morada)) :- utente(Id,Nome,Idade,xpto1).
-	removeImperfeito( utente(Id,Na,I,Ad) ) :- Ad \= xpto1 , retract(utente(Id,Na,I,xpto1 )).
 
 	% Conhecimento Imperfeito Impreciso
 	
@@ -84,7 +83,6 @@ servico(2,analises,santa_maria,lisboa).
 	% O serviço analise com id 3 localizado na cidade do porto nao se sabe a instituição.
 	servico(3,analise,xpto2,porto).
 	exception(servico(Id,De,In,Ci)) :-	servico(Id,De,xpto2,Ci).
-	removeImperfeito( servico(Id,De,In,Ci) ) :- In \= xpto2 , retract(Id,De,xpto2,Ci).  
 						
 	% Conhecimento imperfeito impreciso
 
@@ -129,7 +127,6 @@ consulta(2016,5,1,2,1,250).
 	% Foi realizadda uma consulta medica no servico 2 (analises clinicas) ao utente 2 com um custo de 10 unidades no ano 2014 mes 10 mas nao se sabe o dia.
 	consulta(2014,10,xpto4,2,2,10).
 	exception( consulta(Ano,Mes,Dia,Ut,Serv,Custo) ) :- consuta(Ano,Mes,xpto4,Ut,Serv,Custo).	
-	removeImperfeito( consuta(A,M,D,Ut,Se,Cu) ) :- D\=xpto4 , retract(A,M,xpto4 ).	
 
 	% Conhecimento Imperfeito Impreciso
 
@@ -237,10 +234,6 @@ concatenar([X|L1],L2,[X|L]):- concatenar(L1,L2,L).
 %--------------------------------------------------------------------------
 nao(Q) :- Q, !, fail.
 nao(Q).
-
-demo(Q, verdadeiro) :- Q.
-demo(Q, falso) :- -Q.
-demo(Q, desconhecido) :- nao(Q), nao(-Q).
 
 demo([Q1|QS], R) :-
 	demo1(Q1,R1),
