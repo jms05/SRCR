@@ -36,7 +36,7 @@ public class Main{
 		ar.add("sao_joao");
 		ar.add("sao_antonio");
 		ar.add("sao_maria");
-		conheci_impreciso c =new conheci_impreciso(null, "cardio", "sao_joao", "porto","35,40,55" );
+		conheci_interdito c =new conheci_interdito("20","cardio",null,"porto");
 		ArrayList<String> s  =c.getProlog();
 		Iterator<String> it = s.iterator();
 		while (it.hasNext()) {
