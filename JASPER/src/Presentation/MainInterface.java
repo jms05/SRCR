@@ -65,10 +65,6 @@ public class MainInterface extends JFrame {
 		cimp.setVisible(true);
 	}
 
-	private void button1ActionPerformed(ActionEvent e) {
-		Main.print_dados();
-	}
-
 	private void addConhecimentoInterditoActionPerformed(ActionEvent e) {
 		ConhecimentoInderdito cint = new ConhecimentoInderdito();
 		cint.setVisible(true);
@@ -88,7 +84,6 @@ public class MainInterface extends JFrame {
 		addConhecimentoImpreciso = new JButton();
 		addConhecimentoIncerto = new JButton();
 		addConhecimentoInterdito = new JButton();
-		button1 = new JButton();
 		fileChooser1 = new JFileChooser();
 
 		//======== this ========
@@ -168,12 +163,6 @@ public class MainInterface extends JFrame {
 		contentPane.add(addConhecimentoInterdito);
 		addConhecimentoInterdito.setBounds(430, 170, 220, addConhecimentoInterdito.getPreferredSize().height);
 
-		//---- button1 ----
-		button1.setText("print");
-		button1.addActionListener(e -> button1ActionPerformed(e));
-		contentPane.add(button1);
-		button1.setBounds(new Rectangle(new Point(50, 290), button1.getPreferredSize()));
-
 		{ // compute preferred size
 			Dimension preferredSize = new Dimension();
 			for(int i = 0; i < contentPane.getComponentCount(); i++) {
@@ -208,7 +197,6 @@ public class MainInterface extends JFrame {
 	private JButton addConhecimentoImpreciso;
 	private JButton addConhecimentoIncerto;
 	private JButton addConhecimentoInterdito;
-	private JButton button1;
 	private JFileChooser fileChooser1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

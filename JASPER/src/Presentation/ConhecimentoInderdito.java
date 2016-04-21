@@ -37,7 +37,7 @@ public class ConhecimentoInderdito extends JFrame {
 			if(morada.length()==0) morada=null;
 			
 			c = new conheci_interdito("UTENTE",id,nome,idade,morada);
-			System.out.println(Main.evolucao(c.getProlog()));
+			Main.evolucao(c.getProlog());
 		}
 		if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
@@ -56,7 +56,7 @@ public class ConhecimentoInderdito extends JFrame {
 			if(custoConsulta.length()==0) custoConsulta=null;
 			
 			c = new conheci_interdito(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
-			System.out.println(Main.evolucao(c.getProlog()));
+			Main.evolucao(c.getProlog());
 		}
 		if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
@@ -71,7 +71,7 @@ public class ConhecimentoInderdito extends JFrame {
 			if(cidadeServico.length()==0) cidadeServico=null;
 			
 			c = new conheci_interdito(idServico,nomeServico,instServico,cidadeServico);
-			System.out.println(Main.evolucao(c.getProlog()));
+			Main.evolucao(c.getProlog());
 		}
 		
 		//agr falta adicionar o conhecimento_incerto c à base de conhecimento

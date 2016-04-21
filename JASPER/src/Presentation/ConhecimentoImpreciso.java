@@ -47,7 +47,7 @@ public class ConhecimentoImpreciso extends JFrame {
 			}
 			
 			c = new conheci_impreciso("", id, nome, idade, morada, ops);
-			System.out.println(Main.evolucao(c.getProlog()));
+			Main.evolucao(c.getProlog());
 		}
 		if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta,String ops
@@ -80,7 +80,7 @@ public class ConhecimentoImpreciso extends JFrame {
 			}
 			
 			c = new conheci_impreciso(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta,ops);
-			System.out.println(Main.evolucao(c.getProlog()));
+			Main.evolucao(c.getProlog());
 		}
 		if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico,String ops
@@ -105,7 +105,7 @@ public class ConhecimentoImpreciso extends JFrame {
 			}
 			
 			c = new conheci_impreciso(idServico,nomeServico,instServico,cidadeServico,ops);
-			System.out.println(Main.evolucao(c.getProlog()));
+			Main.evolucao(c.getProlog());
 		}
 		
 		//agr falta adicionar o conhecimento_incerto c à base de conhecimento

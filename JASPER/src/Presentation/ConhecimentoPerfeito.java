@@ -31,6 +31,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			String morada = textArg4.getText();
 			
 			c = new conhecimento("UTENTE",id,nome,idade,morada);
+			Main.evolucao(c.getProlog());
 		}else if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
 			String diaConsulta = textArg1.getText();
@@ -41,6 +42,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			String custoConsulta = textArg6.getText();
 			
 			c = new conhecimento(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
+			Main.evolucao(c.getProlog());
 		}else if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
 			String idServico = textArg1.getText();
@@ -49,9 +51,8 @@ public class ConhecimentoPerfeito extends JFrame {
 			String cidadeServico = textArg4.getText();
 			
 			c = new conhecimento(idServico,nomeServico,instServico,cidadeServico);
+			Main.evolucao(c.getProlog());
 		}
-		
-		Main.inserir_perfeito(c);	
 	}
 
 	private void buttonServicoActionPerformed(ActionEvent e) {
@@ -100,6 +101,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			String morada = textArg4.getText();
 			
 			c = new conheci_negativo("UTENTE",id,nome,idade,morada);
+			Main.evolucao(c.getProlog());
 		}
 		if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
@@ -111,6 +113,7 @@ public class ConhecimentoPerfeito extends JFrame {
 			String custoConsulta = textArg6.getText();
 			
 			c = new conheci_negativo(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
+			Main.evolucao(c.getProlog());
 		}
 		if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
@@ -120,8 +123,8 @@ public class ConhecimentoPerfeito extends JFrame {
 			String cidadeServico = textArg4.getText();
 			
 			c = new conheci_negativo(idServico,nomeServico,instServico,cidadeServico);
+			Main.evolucao(c.getProlog());
 		}
-		Main.inserir_perfeito(c);	
 	}
 
 	private void initComponents() {

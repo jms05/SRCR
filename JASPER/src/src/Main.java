@@ -3,12 +3,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import Presentation.ConhecimentoImpreciso;
-import Presentation.ConhecimentoPerfeito;
 import Presentation.MainInterface;
-//import se.sics.jasper.Query;
-//import se.sics.jasper.SICStus;
-//import se.sics.jasper.SPException;
+import se.sics.jasper.Query;
 import se.sics.jasper.SICStus;
 import se.sics.jasper.SPException;
 
@@ -21,7 +17,6 @@ public class Main{
 		MainInterface m = new MainInterface();
 		m.setVisible(true);
 		array=new ArrayList<String>();
-		//jms();
 	}
 	
 	public static int load(String path){
@@ -37,25 +32,21 @@ public class Main{
 		return flag;
 	}
 	
-	public static void inserir_perfeito(conhecimento c){
-		ArrayList<String> s = c.getProlog();
-		Iterator<String> it = s.iterator();
-		while (it.hasNext()) {
-			String s1 = (String) it.next();
-			array.add(s1);
+	public static void interpretador(String s) {
+		try{
+			String queryS = s;
+			HashMap map = new HashMap();
+			Query query = sp.openPrologQuery(queryS,map);
+			while (query.nextSolution()) {
+				System.out.println(map.toString());
+			}
+			query.close();
+		}catch(Exception e){
+			
 		}
 	}
 	
-	public static void print_dados(){
-		Iterator<String> it = array.iterator();
-		while (it.hasNext()) {
-			String s1 = (String) it.next();
-			System.out.println(s1);
-		}
-	}
-	
-	
-	public static String evolucao(ArrayList<String> termos){
+	public static void evolucao(ArrayList<String> termos) {
 		String evol = "evolucaoS([";
 		int i = 0;
 		int tam = termos.size();
@@ -69,7 +60,8 @@ public class Main{
 			i++;
 		}
 		evol+="]).";
-		return evol;
+		System.out.println(evol);
+		interpretador(evol);
 	}
 	
 	static void jms(){
