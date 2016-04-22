@@ -49,15 +49,15 @@ utente(2,sara,18,porto).
 	utente(8,pedro,20,xpto8).
 	eception(utente(ID,N,I,M)) :- utente(ID,N,I,xpto8). 
 	nulo(xpto8).
-	+utente(ID,N,I,M)::( solucoes( (M), (utente(8,pedro,20,M),nao(nulo(M))),L),
-			comprimento(L,N),N==0)
+	+utente(ID,N,I,M)::( solucoes( 1, (utente(8,pedro,20,M),nao(nulo(M))),L),
+			comprimento(L,X),X==0).
 
 %------------------------------------------------------------------
 % Invariante para os utentes 
 
 % utente nao pode ter ID repetido
 +utente(Id,Na,Ag,Ad)::( solucoes((Id,Na,Ag,Ad),utente(Id,_,_,_),L ), 
-			comprimento(L,N ), N == 1 ). 
+			comprimento(L,X ), X == 1 ). 
 % Nao pode ser removido um utente que já esteja referenciado numa consulta
 -utente(Id,Na,Ag,Ad)::( solucoes( ( Id ) , consulta(_,_,_,Id,_,_) , L ) , 
 			comprimento(L,N), N==0 ).
