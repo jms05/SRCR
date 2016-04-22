@@ -37,15 +37,20 @@ public class ConhecimentoImpreciso extends JFrame {
 				id=null;
 			}else if(nome.contains("-") || nome.contains(",")){
 				ops=nome;
-				id=null;
+				nome=null;
 			}else if(idade.contains("-") || idade.contains(",")){
 				ops=idade;
-				id=null;
+				idade=null;
 			}else if(morada.contains("-") || morada.contains(",")){
 				ops=morada;
-				id=null;
+				morada=null;
 			}
 			
+			/*System.out.println("ID:"+id);
+			System.out.println("NOME:"+nome);
+			System.out.println("Ida:"+idade);
+			System.out.println("Mor:"+morada);
+			System.out.println("OPs:"+ops);*/
 			c = new conheci_impreciso("", id, nome, idade, morada, ops);
 			Main.evolucao(c.getProlog());
 		}
@@ -77,8 +82,14 @@ public class ConhecimentoImpreciso extends JFrame {
 			}else if(custoConsulta.contains("-") || custoConsulta.contains(",")){
 				ops=custoConsulta;
 				custoConsulta=null;
-			}
-			
+			}/*
+			System.out.println(diaConsulta);
+			System.out.println(mesConsulta);
+			System.out.println(anoConsulta);
+			System.out.println(utenteConsulta);
+			System.out.println(serveConsulta);
+			System.out.println(custoConsulta);
+			System.out.println(ops);*/
 			c = new conheci_impreciso(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta,ops);
 			Main.evolucao(c.getProlog());
 		}
@@ -103,7 +114,11 @@ public class ConhecimentoImpreciso extends JFrame {
 				ops=cidadeServico;
 				cidadeServico=null;
 			}
-			
+			/*System.out.println(idServico);
+			System.out.println(nomeServico);
+			System.out.println(instServico);
+			System.out.println(cidadeServico);
+			System.out.println(ops);*/
 			c = new conheci_impreciso(idServico,nomeServico,instServico,cidadeServico,ops);
 			Main.evolucao(c.getProlog());
 		}
