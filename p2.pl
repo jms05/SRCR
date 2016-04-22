@@ -6,12 +6,14 @@
 :- dynamic servico/4.
 :- dynamic consulta/6. 
 :- dynamic nulo/1. 
+:- dynamic exception/1.
+:- dynamic nao/1.
+:- dynamic '-'/1.
+%:- dynamic ':-'/2.
 
 :- set_prolog_flag( unknown,fail ).
 :- set_prolog_flag( discontiguous_warnings,off ).
 :- set_prolog_flag( single_var_warnings,off ).
-
-
 
 %------------------------------------------------------------------
 % Extensao do predicado utente : idUtent, Nome, Idade, Morada,  -> {V,F}
