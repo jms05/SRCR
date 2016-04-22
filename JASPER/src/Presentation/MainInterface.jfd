@@ -63,7 +63,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 10
 				"y": 95
-				"width": 665
+				"width": 650
 				"height": 5
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -123,15 +123,65 @@ new FormModel {
 				"y": 170
 				"width": 220
 			} )
+			add( new FormComponent( "javax.swing.JSeparator" ) {
+				name: "separator2"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 650
+				"height": 5
+				"x": 10
+				"y": 205
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Execução de queries"
+				"font": #Font0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 310
+				"height": 25
+				"x": 10
+				"y": 215
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textQuery"
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 10
+				"y": 495
+				"width": 515
+				"height": 25
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextPane" ) {
+					name: "textPane1"
+					"font": new java.awt.Font( "Arial", 0, 12 )
+					"editable": false
+				} )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 10
+				"y": 245
+				"width": 645
+				"height": 240
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Executar"
+				"font": new java.awt.Font( "Arial", 0, 14 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button1ActionPerformed", true ) )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 540
+				"y": 495
+				"width": 115
+				"height": 25
+			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 685, 420 )
+			"location": new java.awt.Point( 5, 5 )
+			"size": new java.awt.Dimension( 685, 570 )
 		} )
 		add( new FormComponent( "javax.swing.JFileChooser" ) {
 			name: "fileChooser1"
 			"font": new java.awt.Font( "Arial", 0, 11 )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 485, 435 )
+			"location": new java.awt.Point( 845, 395 )
 			"size": new java.awt.Dimension( 475, 310 )
 		} )
 	}

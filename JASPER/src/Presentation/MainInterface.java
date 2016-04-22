@@ -70,6 +70,13 @@ public class MainInterface extends JFrame {
 		cint.setVisible(true);
 	}
 
+	private void button1ActionPerformed(ActionEvent e) {
+		textPane1.setText("");
+		String query = textQuery.getText();
+		String q2 = "demo(["+query+"],R).";
+		textPane1.setText(Main.interpretador(q2));
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		// Generated using JFormDesigner Evaluation license - Octavio Maia
@@ -84,6 +91,12 @@ public class MainInterface extends JFrame {
 		addConhecimentoImpreciso = new JButton();
 		addConhecimentoIncerto = new JButton();
 		addConhecimentoInterdito = new JButton();
+		separator2 = new JSeparator();
+		label3 = new JLabel();
+		textQuery = new JTextField();
+		scrollPane1 = new JScrollPane();
+		textPane1 = new JTextPane();
+		button1 = new JButton();
 		fileChooser1 = new JFileChooser();
 
 		//======== this ========
@@ -123,7 +136,7 @@ public class MainInterface extends JFrame {
 		contentPane.add(buttonApagar);
 		buttonApagar.setBounds(370, 60, 185, buttonApagar.getPreferredSize().height);
 		contentPane.add(separator1);
-		separator1.setBounds(10, 95, 665, 5);
+		separator1.setBounds(10, 95, 650, 5);
 
 		//---- addConhecimentoPerfeito ----
 		addConhecimentoPerfeito.setText("Conhecimento Perfeito (Positivo / Negativo)");
@@ -162,6 +175,34 @@ public class MainInterface extends JFrame {
 		addConhecimentoInterdito.addActionListener(e -> addConhecimentoInterditoActionPerformed(e));
 		contentPane.add(addConhecimentoInterdito);
 		addConhecimentoInterdito.setBounds(430, 170, 220, addConhecimentoInterdito.getPreferredSize().height);
+		contentPane.add(separator2);
+		separator2.setBounds(10, 205, 650, 5);
+
+		//---- label3 ----
+		label3.setText("Execu\u00e7\u00e3o de queries");
+		label3.setFont(new Font("Arial", Font.BOLD, 14));
+		contentPane.add(label3);
+		label3.setBounds(10, 215, 310, 25);
+		contentPane.add(textQuery);
+		textQuery.setBounds(10, 495, 515, 25);
+
+		//======== scrollPane1 ========
+		{
+
+			//---- textPane1 ----
+			textPane1.setFont(new Font("Arial", Font.PLAIN, 12));
+			textPane1.setEditable(false);
+			scrollPane1.setViewportView(textPane1);
+		}
+		contentPane.add(scrollPane1);
+		scrollPane1.setBounds(10, 245, 645, 240);
+
+		//---- button1 ----
+		button1.setText("Executar");
+		button1.setFont(new Font("Arial", Font.PLAIN, 14));
+		button1.addActionListener(e -> button1ActionPerformed(e));
+		contentPane.add(button1);
+		button1.setBounds(540, 495, 115, 25);
 
 		{ // compute preferred size
 			Dimension preferredSize = new Dimension();
@@ -176,7 +217,7 @@ public class MainInterface extends JFrame {
 			contentPane.setMinimumSize(preferredSize);
 			contentPane.setPreferredSize(preferredSize);
 		}
-		setSize(685, 420);
+		setSize(685, 570);
 		setLocationRelativeTo(null);
 
 		//---- fileChooser1 ----
@@ -197,6 +238,12 @@ public class MainInterface extends JFrame {
 	private JButton addConhecimentoImpreciso;
 	private JButton addConhecimentoIncerto;
 	private JButton addConhecimentoInterdito;
+	private JSeparator separator2;
+	private JLabel label3;
+	private JTextField textQuery;
+	private JScrollPane scrollPane1;
+	private JTextPane textPane1;
+	private JButton button1;
 	private JFileChooser fileChooser1;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }

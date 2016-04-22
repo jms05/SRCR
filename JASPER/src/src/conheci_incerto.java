@@ -31,7 +31,7 @@ public class conheci_incerto extends conhecimento {
 
 
 	protected String getSaltString() {
-        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        String SALTCHARS = "abcdefghijklmnopqrstuvwxyz";
         StringBuilder salt = new StringBuilder();
         Random rnd = new Random();
         while (salt.length() < 18) {

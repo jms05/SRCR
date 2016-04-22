@@ -7,16 +7,15 @@ import Presentation.MainInterface;
 import se.sics.jasper.Query;
 import se.sics.jasper.SICStus;
 import se.sics.jasper.SPException;
+import se.sics.jasper.SPPredicate;
 
 public class Main{
-	
 	private static SICStus sp;
-	private static ArrayList<String> array;
 	
 	public static void main(String[] args){
 		MainInterface m = new MainInterface();
 		m.setVisible(true);
-		array=new ArrayList<String>();
+		new ArrayList<String>();
 	}
 	
 	public static int load(String path){
@@ -25,43 +24,164 @@ public class Main{
 			sp = new SICStus();
 			sp.load(path);
 			flag=1;
-		} catch (SPException e) {
-			System.out.println("erro");
+		} catch (Exception e) {
 			flag=0;
 		}
 		return flag;
 	}
 	
-	public static void interpretador(String s) {
+	public static String interpretador(String s) {
+		/*String ret="";
 		try{
 			String queryS = s;
 			HashMap map = new HashMap();
 			Query query = sp.openPrologQuery(queryS,map);
 			while (query.nextSolution()) {
-				System.out.println(map.toString());
+				ret+=map.toString();
 			}
 			query.close();
 		}catch(Exception e){
 			
 		}
+		return ret;*/
+		StringBuilder output = new StringBuilder();
+		try{
+			HashMap map = new HashMap();
+			Query query = sp.openPrologQuery(s, map);
+			if(query.nextSolution()){
+				output.append(parseSolution(map.toString()));
+			}
+			while(query.nextSolution()){
+				output.append("\n"+parseSolution(map.toString()));
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return output.toString();
 	}
 	
 	public static void evolucao(ArrayList<String> termos) {
-		String evol = "evolucaoS([";
+		String evol = "demo1((evolucaoS([";
+		//String evol="assert(";
 		int i = 0;
 		int tam = termos.size();
 		for (String string2 : termos) {
-			System.out.println(string2);
 			String string = string2.substring(0, string2.length()-1);
-			evol+=string;
+			evol+="("+string+")";
 			if(i+1!=tam){
 				evol+=",";
 			}
 			i++;
 		}
-		evol+="]).";
+		evol+="])),R).";
 		System.out.println(evol);
-		interpretador(evol);
+		System.out.println(interpretador(evol));
+	}
+	
+	private static String parseSolution(String solution) {
+		StringBuilder sb = new StringBuilder();
+		Boolean end = false;
+		for(int i = 0; !end; i++){
+			char c = solution.charAt(i);
+			switch(c){
+			case '{': case ',':
+				sb.append(c);
+				i = parseTerm(solution,sb,i+1);
+				break;
+			case '}':
+				if(sb.charAt(1) == ' '){
+					sb.deleteCharAt(1);
+				}
+				if(sb.charAt(sb.length()-1) == ','){
+					sb.deleteCharAt(sb.length()-1);
+				}
+				sb.append(c);
+				end = true;
+				break;
+			default:
+				i = parseTerm(solution,sb,i);
+			}
+		}
+		return sb.toString();
+	}
+	
+	private static int parseTerm(String solution, StringBuilder sb, int index) {
+		StringBuilder term = new StringBuilder();
+		Boolean end = false;
+		Boolean ignore = false;
+		for(; !end; index++){
+			char c = solution.charAt(index);
+			switch(c){
+			case '.':
+				index = parseList(solution,term,index);
+				break;
+			case '_':
+				ignore = true;
+				break;
+			case ',': 
+				term.append(c);
+				end = true;
+				break;
+			case '}':
+				end = true;
+				break;
+			default:
+				if(!ignore)
+					term.append(c);
+			}
+		}
+		if(!ignore){
+			sb.append(term.toString());
+		}
+		if(term.length()>0){
+			if(term.charAt(term.length()-1) == ',')
+				return index-1;
+			else
+				return index-2;
+		}
+		else return index-2;
+	}
+
+	private static  int parseList(String solution, StringBuilder sb, int index) {
+		StringBuilder list = new StringBuilder();
+		list.append('[');
+		Boolean end = false;
+		int nivel = 0;
+		int hifen = 0;
+		for(; !end; index++){
+			char c = solution.charAt(index);
+			switch(c){
+			case '-':
+				hifen++;
+				break;
+			case '.': case '[': case ']':
+				break;
+			case ',':
+				if(hifen > 0){
+					list.append('-');
+					hifen--;
+				}
+				else list.append(',');
+				break;
+			case '(':
+				nivel++;
+				break;
+			case ')':
+				nivel--;
+				if(nivel == 0) 
+					end = true;
+				break;
+			default:
+				list.append(c);
+				break;			
+			}
+		}
+		if(list.charAt(list.length()-1) == ','){
+			list.deleteCharAt(list.length()-1);
+		}
+		list.append(']');
+		sb.append(list.toString());
+		return index-1;
 	}
 	
 	static void jms(){
