@@ -2,6 +2,7 @@ package src;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 
 import Presentation.MainInterface;
 import se.sics.jasper.Query;
@@ -31,19 +32,39 @@ public class Main{
 	}
 	
 	public static String interpretador(String s) {
-		/*String ret="";
+		String ret="";
 		try{
 			String queryS = s;
 			HashMap map = new HashMap();
 			Query query = sp.openPrologQuery(queryS,map);
+			ArrayList<String> arr =new ArrayList<>();
 			while (query.nextSolution()) {
-				ret+=map.toString();
+				String tmp =map.toString();
+				if(arr.contains(tmp)==false){
+					arr.add(tmp);
+					System.out.println(tmp);
+				}
+				
+			}
+			for (String string : arr) {
+				ret+=string;
 			}
 			query.close();
 		}catch(Exception e){
 			
 		}
-		return ret;*/
+		if(s.charAt(s.length()-1)=='.'){
+			s = s.substring(0, s.length()-1);
+		}
+		if(ret.contains("=")) ret=ret.split("=")[1].split("}")[0];
+		if(s.contains("([") && s.contains(")]")){
+			System.out.println(s);
+			String token1 = Pattern.quote("([");
+			String token2 = Pattern.quote(")]");
+			//System.out.println(s.split("["));
+			s="["+((s.split(token1)[1]).split(token2)[0])+")]";
+		}
+		return s+"->"+ret+"\n";/*
 		StringBuilder output = new StringBuilder();
 		try{
 			HashMap map = new HashMap();
@@ -57,16 +78,18 @@ public class Main{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return output.toString();
+		return output.toString();*/
 	}
 	
 	public static void evolucao(ArrayList<String> termos) {
+		
 		String evol = "demo1((evolucaoS([";
 		//String evol="assert(";
 		int i = 0;
 		int tam = termos.size();
 		for (String string2 : termos) {
 			String string = string2.substring(0, string2.length()-1);
+			string=string.toLowerCase().replaceAll("\\s+","");
 			evol+="("+string+")";
 			if(i+1!=tam){
 				evol+=",";

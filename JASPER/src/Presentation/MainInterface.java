@@ -7,18 +7,37 @@ package Presentation;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import src.Main;
 /**
  * @author Octavio Maia
  */
 public class MainInterface extends JFrame {
+	private ArrayList<String> history;
 	public MainInterface() {
+		this.history=new ArrayList<>();
 		initComponents();
 	}
-
+	private String addhito(String s){
+		String ret ="";
+		
+		if(this.history.isEmpty()){
+			this.history.add(s);
+		}else{
+			if(this.history.get(this.history.size()-1).equals(s)==false){
+				this.history.add(s);
+			}
+		}
+		for (String string : history) {
+			ret+=string;
+		}
+		return ret;
+	}
+	
 	private void buttonProcurarActionPerformed(ActionEvent e) {
 		fileChooser1.setVisible(true);
 		int result = fileChooser1.showOpenDialog(fileChooser1);
@@ -74,7 +93,8 @@ public class MainInterface extends JFrame {
 		textPane1.setText("");
 		String query = textQuery.getText();
 		String q2 = "demo(["+query+"],R).";
-		textPane1.setText(Main.interpretador(q2));
+		//System.out.println(q2);
+		textPane1.setText(addhito(Main.interpretador(q2)));
 	}
 
 	private void initComponents() {
@@ -98,6 +118,8 @@ public class MainInterface extends JFrame {
 		textPane1 = new JTextPane();
 		button1 = new JButton();
 		fileChooser1 = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("PROLOG FILES", "pl", "text");
+		fileChooser1.setFileFilter(filter);
 
 		//======== this ========
 		setTitle("Leitura");
