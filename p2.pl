@@ -248,10 +248,6 @@ demo1(Q, verdadeiro) :- Q.
 demo1(Q, falso) :- -Q.
 demo1(Q, desconhecido) :- nao(Q), nao(-Q).
 
-%demo([consulta(2015,2,20,1,1,300),consulta(2020,4,20,10,7,1.5),utente(3,bruno,25,cona)],R).
-%demo1(utente(3,bruno,25,cona),R).
-demo([consulta(2015,2,20,1,1,300),utente(3,bruno,25,cona)],R).
-demo([consulta(2020,4,20,10,7,1.5),utente(3,bruno,25,cona)],R).
 
 newAnd(verdadeiro,verdadeiro,verdadeiro).
 newAnd(verdadeiro,falso,falso).
@@ -263,7 +259,4 @@ newAnd(desconhecido,verdadeiro,desconhecido).
 newAnd(desconhecido,falso,falso).
 newAnd(desconhecido,desconhecido,desconhecido).
 
-
-%evolucaoS([nulo(rui),nulo(joao),nulo(ana)]).
-%evolucaoS([nulo(rui),nulo(joao)]).
 %:- prolog_flag(debugging,_,trace).
