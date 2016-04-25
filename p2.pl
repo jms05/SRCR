@@ -6,12 +6,14 @@
 :- dynamic servico/4.
 :- dynamic consulta/6. 
 :- dynamic nulo/1. 
+:- dynamic exception/1.
+:- dynamic nao/1.
+:- dynamic '-'/1.
+%:- dynamic ':-'/2.
 
 :- set_prolog_flag( unknown,fail ).
 :- set_prolog_flag( discontiguous_warnings,off ).
 :- set_prolog_flag( single_var_warnings,off ).
-
-
 
 %------------------------------------------------------------------
 % Extensao do predicado utente : idUtent, Nome, Idade, Morada,  -> {V,F}
@@ -126,8 +128,8 @@ consulta(2016,5,1,2,1,250).
 
 	% Foi realizadda uma consulta medica no servico 2 (analises clinicas) ao utente 2 com um custo de 10 unidades no ano 2014 mes 10 mas nao se sabe o dia.
 	consulta(2014,10,xpto4,2,2,10).
-	exception( consulta(Ano,Mes,Dia,Ut,Serv,Custo) ) :- consuta(Ano,Mes,xpto4,Ut,Serv,Custo).	
-
+	exception( consulta(Ano,Mes,Dia,Ut,Serv,Custo) ) :- consuta(Ano,Mes,xpto4,Ut,Serv,Custo).
+	
 	% Conhecimento Imperfeito Impreciso
 
 	% A consulta realizada no ano 2010 no dia 4 do mes 1 para o utente 1 do serviço 1 teve um custo compreendido entre 15 e 30 unidades.
