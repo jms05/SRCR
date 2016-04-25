@@ -164,7 +164,7 @@ consulta(2016,5,1,2,1,250).
 
 % Invariante gerais
 % Invariante que não permite a adição de exceptions repetidas
-+exception(E):: (solucoes( E , exceptions(E) , l), comprimento(L,N), N==1).
++exception(E):: (solucoes( E , exception(E) , l), comprimento(L,N), N==1).
 
 % Invariante que não permite a adição de nulo repetidos
 +nulo(V)::( solucoes( V, nulo(V),L ), comprimento(L,N), N==1).
