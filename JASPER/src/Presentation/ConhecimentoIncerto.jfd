@@ -64,7 +64,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"text": "Construtor (ALTERAR)"
+				"text": "Construtor"
 				"font": new java.awt.Font( "Arial", 1, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 10

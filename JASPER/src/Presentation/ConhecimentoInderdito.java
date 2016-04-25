@@ -174,7 +174,7 @@ public class ConhecimentoInderdito extends JFrame {
 		separator1.setBounds(10, 68, 540, 7);
 
 		//---- label2 ----
-		label2.setText("Construtor (ALTERAR)");
+		label2.setText("Construtor");
 		label2.setFont(new Font("Arial", Font.BOLD, 14));
 		contentPane.add(label2);
 		label2.setBounds(new Rectangle(new Point(10, 85), label2.getPreferredSize()));
