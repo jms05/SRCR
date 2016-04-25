@@ -30,8 +30,12 @@ public class ConhecimentoPerfeito extends JFrame {
 			String idade = textArg3.getText();
 			String morada = textArg4.getText();
 			
-			c = new conhecimento("UTENTE",id,nome,idade,morada);
-			Main.evolucao(c.getProlog());
+			if(id.length()>0 && nome.length()>0 && idade.length()>0 && morada.length()>0){
+				c = new conhecimento("UTENTE",id,nome,idade,morada);
+				Main.evolucao(c.getProlog());
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique se preencheu todos os campos!");
+			}
 		}else if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
 			String diaConsulta = textArg1.getText();
@@ -41,8 +45,12 @@ public class ConhecimentoPerfeito extends JFrame {
 			String serveConsulta = textArg5.getText();
 			String custoConsulta = textArg6.getText();
 			
-			c = new conhecimento(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
-			Main.evolucao(c.getProlog());
+			if(diaConsulta.length()>0 && mesConsulta.length()>0 && anoConsulta.length()>0 && utenteConsulta.length()>0 && serveConsulta.length()>0 && custoConsulta.length()>0){
+				c = new conhecimento(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
+				Main.evolucao(c.getProlog());
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique se preencheu todos os campos!");
+			}
 		}else if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
 			String idServico = textArg1.getText();
@@ -50,8 +58,12 @@ public class ConhecimentoPerfeito extends JFrame {
 			String instServico = textArg3.getText();
 			String cidadeServico = textArg4.getText();
 			
-			c = new conhecimento(idServico,nomeServico,instServico,cidadeServico);
-			Main.evolucao(c.getProlog());
+			if(idServico.length()>0 && nomeServico.length()>0 && instServico.length()>0 && cidadeServico.length()>0){
+				c = new conhecimento(idServico,nomeServico,instServico,cidadeServico);
+				Main.evolucao(c.getProlog());
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique se preencheu todos os campos!");
+			}
 		}
 	}
 
@@ -100,8 +112,12 @@ public class ConhecimentoPerfeito extends JFrame {
 			String idade = textArg3.getText();
 			String morada = textArg4.getText();
 			
-			c = new conheci_negativo("UTENTE",id,nome,idade,morada);
-			Main.evolucao(c.getProlog());
+			if(id.length()>0 && nome.length()>0 && idade.length()>0 && morada.length()>0){
+				c = new conheci_negativo("UTENTE",id,nome,idade,morada);
+				Main.evolucao(c.getProlog());
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique se preencheu todos os campos!");
+			}
 		}
 		if(buttonConsulta.isSelected()){
 			//String diaConslta, String mesConslta, String anoConslta, String utenteConslta, String serveConslta, String custoConslta
@@ -112,8 +128,12 @@ public class ConhecimentoPerfeito extends JFrame {
 			String serveConsulta = textArg5.getText();
 			String custoConsulta = textArg6.getText();
 			
-			c = new conheci_negativo(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
-			Main.evolucao(c.getProlog());
+			if(diaConsulta.length()>0 && mesConsulta.length()>0 && anoConsulta.length()>0 && utenteConsulta.length()>0 && serveConsulta.length()>0 && custoConsulta.length()>0){
+				c = new conheci_negativo(diaConsulta,mesConsulta,anoConsulta,utenteConsulta,serveConsulta,custoConsulta);
+				Main.evolucao(c.getProlog());
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique se preencheu todos os campos!");
+			}
 		}
 		if(buttonServico.isSelected()){
 			//String idServico, String nomeServico, String instServico, String cidadeServico
@@ -122,8 +142,12 @@ public class ConhecimentoPerfeito extends JFrame {
 			String instServico = textArg3.getText();
 			String cidadeServico = textArg4.getText();
 			
-			c = new conheci_negativo(idServico,nomeServico,instServico,cidadeServico);
-			Main.evolucao(c.getProlog());
+			if(idServico.length()>0 && nomeServico.length()>0 && instServico.length()>0 && cidadeServico.length()>0){
+				c = new conheci_negativo(idServico,nomeServico,instServico,cidadeServico);
+				Main.evolucao(c.getProlog());
+			}else{
+				JOptionPane.showMessageDialog(null, "Verifique se preencheu todos os campos!");
+			}
 		}
 	}
 
