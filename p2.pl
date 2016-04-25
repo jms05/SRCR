@@ -58,7 +58,7 @@ utente(2,sara,18,porto).
 % Invariante para os utentes 
 
 % utente nao pode ter ID repetido
-+utente(Id,Na,Ag,Ad)::( solucoes((Id,Na,Ag,Ad),utente(Id,_,_,_),L ), 
++utente(Id,Na,Ag,Ad)::( solucoes((Id,Na,Ag,Ad),utente(Id,Na,Ag,Ad),L ), 
 			comprimento(L,X ), X == 1 ). 
 % Nao pode ser removido um utente que já esteja referenciado numa consulta
 -utente(Id,Na,Ag,Ad)::( solucoes( ( Id ) , consulta(_,_,_,Id,_,_) , L ) , 
@@ -104,10 +104,10 @@ servico(2,analises,santa_maria,lisboa).
 %------------------------------------------------------------------
 % Invariantes para o conehcimento do predicado serviço
 % Invariante que nao permite a inserção de dois serviçoes com o mesmo identidicador
-+servico(Id,De,In,Ci)::( solucoes( (Id), servico(Id,_,_,_), L ), comprimento(L,N), N==1 ).
++servico(Id,De,In,Ci)::( solucoes( (Id), servico(Id,De,In,Ci), L ), comprimento(L,N), N==1 ).
 
 % Invariante que nao permite a remoção de um serviço caso este esteja referenciado numa consulta
--servico(Id,De,In,Ci)::( solucoes( (Id), consuta(_,_,_,_,Id,_), L), comprimento(L,N), N==1 ).
+-servico(Id,De,In,Ci)::( solucoes( (Id), consulta(_,_,_,_,Id,_), L), comprimento(L,N), N==1 ).
 
 %------------------------------------------------------------------
 % Extensao do predicado consulta: Ano,Mes,Dia, IdUtente, IdServ, Custo,  -> {V,F}
@@ -128,7 +128,7 @@ consulta(2016,5,1,2,1,250).
 
 	% Foi realizadda uma consulta medica no servico 2 (analises clinicas) ao utente 2 com um custo de 10 unidades no ano 2014 mes 10 mas nao se sabe o dia.
 	consulta(2014,10,xpto4,2,2,10).
-	exception( consulta(Ano,Mes,Dia,Ut,Serv,Custo) ) :- consuta(Ano,Mes,xpto4,Ut,Serv,Custo).
+	exception( consulta(Ano,Mes,Dia,Ut,Serv,Custo) ) :- consulta(Ano,Mes,xpto4,Ut,Serv,Custo).
 	
 	% Conhecimento Imperfeito Impreciso
 
