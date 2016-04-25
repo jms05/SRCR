@@ -155,7 +155,7 @@ consulta(2016,5,1,2,1,250).
                 			comprimento(L,N ), N == 1 ).
 
 % Invariante que valida o identificadores do utente e do serviço
-+consulta(Ano,Mes,Dia,Ut,Se,Cu)::( (solucoes( (Serv), servico(Se,_,_,_),L1) ),
++consulta(Ano,Mes,Dia,Ut,Se,Cu)::( (solucoes( (Se), servico(Se,_,_,_),L1) ),
 					(solucoes( (Ut) , utente(Ut,_,_,_),L2) ),
 					comprimento(L1,N1),
 					comprimento(L2,N2),
